@@ -21,9 +21,8 @@ We will briefly write about each stage, show case what we was able to achieve us
 
 ## Table of Contents
 1. [Introduction](##introduction)
-2. [NorthWind Traders Overview](#northwind-traders-overview)
-3. [Tech Stack](#tech-stack)
-4. [Project Stages](#project-stages)
+2. [Tech Stack](#tech-stack)
+3. [Project Stages](#project-stages)
    - [Data Extraction from CSV Files](#1-data-extraction-from-csv-files)
    - [Database Administration and Development](#2-database-administration-and-development)
    - [Data Warehouse Modeling and Implementation](#3-data-warehouse-modeling-and-implementation)
@@ -35,8 +34,8 @@ We will briefly write about each stage, show case what we was able to achieve us
    - [SSRS (SQL Server Reporting Services)](#9-ssrs-sql-server-reporting-services)
    - [Python Dashboard](#10-python-dashboard)
    - [Web Application with AI Integration](#11-web-application-with-ai-integration)
-5. [Contributors](#contributors)
-6. [Conclusion](#conclusion)
+4. [Contributors](#contributors)
+5. [Conclusion](#conclusion)
 
 ## Introduction
 The Northwind database is a sample database that was originally created by Microsoft and used as the basis for their tutorials in a variety of database products for decades. The Northwind database contains the sales data for a fictitious company called “Northwind Traders,” which imports and exports specialty foods from around the world. The Northwind database is an excellent tutorial schema for a small-business ERP, with customers, orders, inventory, purchasing, suppliers, shipping, employees, and single-entry accounting. 
