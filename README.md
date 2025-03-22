@@ -83,4 +83,167 @@ In total we have created **28** view which are very helpful in terms of security
 ### Triggers
 A Trigger is a special type of stored procedure in SQL that automatically executes when a specific event (INSERT, UPDATE, DELETE) occurs in a table. Triggers help enforce business rules, maintain data integrity, and automate tasks
 
+In total we have done **13** triggers of different kinds (after/instead of insert / update)
+
+Here are some examples of the Triggers
+
+- *CheckStockBeforeOrder*, This trigger ensures that an order cannot be placed if the requested quan�ty of a product exceeds the available stock.
+- *UpdateStockOnOrderInsert*, Reduces UnitsInStock in the Products table when a new order detail is inserted, rolling back if insufficient stock is available.
+- *WarnLowStock*, Logs a warning to the LowStockWarnings table and outputs a message when UnitsInStock falls below 10 after an update to the Products table.
+- *CheckStockOnOrder* , checks if the available stock (unitsinstock) is sufficient to fulfill the order quantity. If not, it raises an error and rolls back the transaction, preventing orders that exceed available inventory
+
+### Constraints
+Constraints are rules applied to table columns to maintain data integrity and consistency in a database. They ensure that invalid data cannot be inserted, updated, or deleted.
+
+We have done a total of *15* constraint on the database
+
+
+### Indexes
+An Index in a database improves query performance by allowing faster data retrieval from a table. It works like a book’s index, making it quicker to find specific rows without scanning the entire table.
+
+we have done *5* indexes on the main columns that we expect our quiries and reports to be associated with
+
+
+## 3. Data Ware House Modeling and Implementation (On premises)
+
+After having a fully developed and functional database to *run* the business, now it is time to create a data warehouse model to *analyze* the business
+
+We have dececided to follow a *snowflake schema* for the data model for the following reasons 
+
+1. Removing redundancy in the data
+2. Optimizing Storage (So Important because we will deploy it on the cloud in the next section)
+3. Ease of maintainability
+4. Support for Complex Hierarchies (Employee and Territories)
+
+Here is the model
+
+![WhatsApp Image 2025-03-05 at 16 20 42_921d2e02](https://github.com/user-attachments/assets/b52de1d6-b8c4-49c5-bbc6-9a7d272366fd)
+
+
+### ETL from OLTP to OLAP using SSIS
+
+In the same phase after creating the data warehouse modeling, it is time to convert form the OLTP system and laod the data into the OLAP system using *SQL SERVER Integration Services SSIS* and *SQL Server Management Studio SSMS*
+
+
+here is some of the ETL screenshots
+
+- Dimensions
+  
+  ![Dimensions ETL](https://github.com/user-attachments/assets/15e1d344-0de4-44c0-a93c-429cca8af21e)
+  
+- Incremental Loading of Fact Table
+  
+  ![OrderFactTable ETL](https://github.com/user-attachments/assets/8467ea12-8e6b-4582-8afa-457c1bd54188)
+  
+- Automated Pipeline to Retrieve Data from the source using SQL Server Jobs
+  
+  ![image](https://github.com/user-attachments/assets/11b122cd-45aa-4fbf-b2cb-03b577c4f976)
+
+*Much More Details and Features are avialable on the documentation*
+
+
+## 4. On cloud Data Ware house and ETL
+By using Azure SQL Database and Azure Data FactoryOn this stage we tried to implement the same process of working on premsis allowing us to have **24/7 SQL Server To host our data**, at the end of this phase we will have a complete **automated pipeline** that have the following features
+
+1. Handles new dimensions data correclty (Slowly Chaning Dimensions)
+2. Increments the data on the fact Table (Incremental Load)
+3. Runs without any human intervention (SQL Jobs)
+4. 24/7 Running server (Azure SQL Database)
+
+With these set of features we ensured that our solution is *scalable, maintainable and automated*
+
+Here are some of screenshots of the ETL Using *Azure Data Factory* and Loading the data into *Azure SQL Database*
+
+![694179ee343e4268aa22799c30a7be1c](https://github.com/user-attachments/assets/b317e1f1-238c-412a-b11a-7d277e1002b7)
+
+![6d0de34f5b1949e8a95cc127ed2ef796](https://github.com/user-attachments/assets/6a8d4042-c775-4f09-8a1d-466cf1b7b317)
+
+![ca87948d11064f3680f846a7b0469de0](https://github.com/user-attachments/assets/9e6b92e6-e32b-4809-a8e2-f98f1ce9559e)
+
+
+*More Detailed Information could be found in the Documentation of this section*
+
+
+## 5. Cube Creation
+After having all our data stored on a logical design to be able to perform our analysis efficiently, it is now time to cache the data into a cube in which we will store our measures
+ 
+## 6. Power BI Dashboarding
+
+
+
+## 7. Tableeau Dashboarding
+
+We utilized the powerful tool *Tableau* to create a comprehensive dashboard to be able to answer the following business questions:
+
+1.  How many products sold does our data reflect?
+2.  What is the total sales for NorthWind?
+3.  What is the Avg Discount for NorthWind Orders?
+4.  How many customers does NorthWind Have?
+5.  How many sold products did NorthWind Sell?
+6.  How many suppliers does NorthWind have?
+7.  What is the relationship between freight and Sales?
+8.  How our customers are distributed around the world?
+9.  Which Category has the highest sales from our products?
+10.  What is the average price per supplier?
+11.  What is the top 5 products sold?
+12.  Inventory Status?
+13.  Much more
+
+here is the dashboards created 
+![Overview](https://github.com/user-attachments/assets/e1e43916-cdd2-4d59-8f16-da108dca0951)
+![Employee Analysis](https://github.com/user-attachments/assets/621bcc14-29b4-4de3-8008-93c13757fb35)
+![Territories Analysis](https://github.com/user-attachments/assets/fc007e7b-bc57-4d15-beb5-13313973e3b2)
+![Customers Analysis](https://github.com/user-attachments/assets/8aa3de2f-e298-41bb-83dd-427570ec00b7)
+![Suppliers Analysis](https://github.com/user-attachments/assets/a805b5cd-27e3-4770-acad-19def2e57bf4)
+![Product Analysis](https://github.com/user-attachments/assets/58c02f90-8fab-4cd9-9714-0afa4d91e8fb)
+![Shippers Analysis](https://github.com/user-attachments/assets/f17ab950-6ea5-458d-b030-859b7a4ba40f)
+
+
+
+
+*The Source Workbooks are in the Repo*
+
+
+## 8. Excel Dashboard
+
+
+## 9. SSRS (SQL Server Reporting Analysis)
+
+
+## 10. Python Dashbaord
+
+In this section we created a dashboard using *python's library streamlit* which is a handy library to create interactive dashboards and deploy them on the web
+
+
+Link for the dashboard:
+
+https://northwind-dashboard-3wofycj7yznyf7dcqh9dvb.streamlit.app/
+
+here are some screenshot from the dashboard *in case you don't want to go to the link :)*
+
+![Screenshot 2025-03-22 143720](https://github.com/user-attachments/assets/c72bb0a3-1bf2-4359-ab83-ca9b55e868f2)
+![Screenshot 2025-03-22 143806](https://github.com/user-attachments/assets/929bba51-1aa0-4f09-af61-73410fb11964)
+![Screenshot 2025-03-22 143801](https://github.com/user-attachments/assets/6da69ce7-ac24-4b45-800c-77967e031d2c)
+![Screenshot 2025-03-22 143751](https://github.com/user-attachments/assets/8085d3ca-6e3a-4f6e-9ac8-695a861f12f9)
+![Screenshot 2025-03-22 143742](https://github.com/user-attachments/assets/17bcac4c-9fd0-4e08-9f95-90cdb6a04b1f)
+![Screenshot 2025-03-22 143733](https://github.com/user-attachments/assets/a742f561-e2ab-4c31-8af1-0a5d4df37b92)
+![Screenshot 2025-03-22 143728](https://github.com/user-attachments/assets/1bc1f4f4-a818-48d0-b90c-5290c212ec56)
+
+
+## 11. Web Application
+
+As the revolution of AI continues to grow, we were tasked to create something with AI and use AI in a helpful manner in our projects, so we decided to use *Cursor.ai* to help us create a management app in which NorthWind Traders can utilize to:
+
+1. Manage Customers ( Add, remove, or update customer details )  
+2. Mange Products ( Add, remove, or update product details )
+3. Manage Orders ( Add, remove, or update product details )
+4. Look at quick and helpful measures to asses how their business is running and whether they are moving in the right directions or if there any bottlenecks
+
+
+
+
+
+
+
+  
 
