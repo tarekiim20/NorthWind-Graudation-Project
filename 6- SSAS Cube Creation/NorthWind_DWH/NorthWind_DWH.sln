@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "NorthWind_DWH", "NorthWind_DWH\NorthWind_DWH.dwproj", "{53747DC3-0754-420A-8DCC-AD75BE1A4832}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53747DC3-0754-420A-8DCC-AD75BE1A4832}.Development|Default.ActiveCfg = Development
+		{53747DC3-0754-420A-8DCC-AD75BE1A4832}.Development|Default.Build.0 = Development
+		{53747DC3-0754-420A-8DCC-AD75BE1A4832}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
