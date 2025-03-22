@@ -19,7 +19,26 @@ This project represent a show case and real implementation of:
 
 We will briefly write about each stage, show case what we was able to achieve using the tool and how the work flows from one stage to another. But before that we need to write about what is NorthWind Traders?
 
-## NorthWind Traders
+## Table of Contents
+1. [Introduction](##introduction)
+2. [NorthWind Traders Overview](#northwind-traders-overview)
+3. [Tech Stack](#tech-stack)
+4. [Project Stages](#project-stages)
+   - [Data Extraction from CSV Files](#1-data-extraction-from-csv-files)
+   - [Database Administration and Development](#2-database-administration-and-development)
+   - [Data Warehouse Modeling and Implementation](#3-data-warehouse-modeling-and-implementation)
+   - [On-Cloud Data Warehouse and ETL](#4-on-cloud-data-warehouse-and-etl)
+   - [Cube Creation](#5-cube-creation)
+   - [Power BI Dashboarding](#6-power-bi-dashboarding)
+   - [Tableau Dashboarding](#7-tableau-dashboarding)
+   - [Excel Dashboard](#8-excel-dashboard)
+   - [SSRS (SQL Server Reporting Services)](#9-ssrs-sql-server-reporting-services)
+   - [Python Dashboard](#10-python-dashboard)
+   - [Web Application with AI Integration](#11-web-application-with-ai-integration)
+5. [Contributors](#contributors)
+6. [Conclusion](#conclusion)
+
+## Introduction
 The Northwind database is a sample database that was originally created by Microsoft and used as the basis for their tutorials in a variety of database products for decades. The Northwind database contains the sales data for a fictitious company called “Northwind Traders,” which imports and exports specialty foods from around the world. The Northwind database is an excellent tutorial schema for a small-business ERP, with customers, orders, inventory, purchasing, suppliers, shipping, employees, and single-entry accounting. 
 
 Some of the entities in the NorthWind Traders
@@ -239,9 +258,54 @@ As the revolution of AI continues to grow, we were tasked to create something wi
 3. Manage Orders ( Add, remove, or update product details )
 4. Look at quick and helpful measures to asses how their business is running and whether they are moving in the right directions or if there any bottlenecks
 
+![image](https://github.com/user-attachments/assets/266ab66a-908f-466d-ac61-b9b3c2574c8d)
+![image](https://github.com/user-attachments/assets/707ba605-c137-4007-8149-387a3372ab2e)
+![image](https://github.com/user-attachments/assets/6a93d8c3-8f24-425b-b18b-196444be5436)
+![image](https://github.com/user-attachments/assets/374ac7ca-e7db-43bf-90bd-afe4d41350b7)
+![image](https://github.com/user-attachments/assets/9203530d-333e-4445-94ac-19f1e76f0515)
+![image](https://github.com/user-attachments/assets/a9c71525-e520-4624-bbaa-83e07e842d4a)
+![image](https://github.com/user-attachments/assets/7882e133-78e1-445b-ae8f-4a2cea5f6950)
+
+
+## Tech Stack
+The following technologies and tools were used in this project:
+
+### Data Extraction and Integration
+- **SQL Server Integration Services (SSIS)**: For ETL processes and data loading.
+
+### Database Management
+- **SQL Server**: For database creation, administration, and querying.
+- **Stored Procedures, Views, Triggers, Constraints, and Indexes**: For optimizing performance and ensuring data integrity.
+
+### Data Warehousing
+- **SQL Server Analysis Services (SSAS)**: For cube creation and multidimensional analysis.
+- **Azure SQL Database**: For cloud-based data warehousing.
+- **Azure Data Factory**: For cloud-based ETL and pipeline automation.
+
+### Data Visualization
+- **Power BI**: For advanced dashboards and reports.
+- **Tableau**: For interactive and comprehensive data visualization.
+- **Excel**: For additional dashboarding and reporting.
+- **Streamlit (Python)**: For creating and deploying interactive web-based dashboards.
+
+### Reporting
+- **SQL Server Reporting Services (SSRS)**: For generating and managing reports.
+
+### AI Integration
+- **Cursor.ai**: For building an AI-powered management application.
+
+
+## Contributors
+- **Abdelrahman Shear**
+- **Nada Aglan**
+- **Khalid Sabry**
+- **Yasmeen Ragheb**
+- **Abdelrahman Abdelhady**
 
 
 
+## Conclusion
+This project represents a comprehensive implementation of the skills and tools we learned during the ITI program. From data extraction and database administration to advanced visualization and AI integration, we delivered a scalable and maintainable solution for NorthWind Traders. We hope this project serves as a valuable resource for others and demonstrates our capabilities as data professionals.
 
 
 
