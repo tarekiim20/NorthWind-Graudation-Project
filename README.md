@@ -166,9 +166,7 @@ Here are some of screenshots of the ETL Using *Azure Data Factory* and Loading t
 
 ## 5. Cube Creation
 After having all our data stored on a logical design to be able to perform our analysis efficiently, it is now time to cache the data into a cube in which we will store our measures
-
-
---- 
+ 
 ## 6. Power BI Dashboarding
 
 
@@ -177,7 +175,71 @@ After having all our data stored on a logical design to be able to perform our a
 
 We utilized the powerful tool *Tableau* to create a comprehensive dashboard to be able to answer the following business questions:
 
-1. 
+1.  How many products sold does our data reflect?
+2.  What is the total sales for NorthWind?
+3.  What is the Avg Discount for NorthWind Orders?
+4.  How many customers does NorthWind Have?
+5.  How many sold products did NorthWind Sell?
+6.  How many suppliers does NorthWind have?
+7.  What is the relationship between freight and Sales?
+8.  How our customers are distributed around the world?
+9.  Which Category has the highest sales from our products?
+10.  What is the average price per supplier?
+11.  What is the top 5 products sold?
+12.  Inventory Status?
+13.  Much more
+
+here is the dashboards created 
+![Overview](https://github.com/user-attachments/assets/e1e43916-cdd2-4d59-8f16-da108dca0951)
+![Employee Analysis](https://github.com/user-attachments/assets/621bcc14-29b4-4de3-8008-93c13757fb35)
+![Territories Analysis](https://github.com/user-attachments/assets/fc007e7b-bc57-4d15-beb5-13313973e3b2)
+![Customers Analysis](https://github.com/user-attachments/assets/8aa3de2f-e298-41bb-83dd-427570ec00b7)
+![Suppliers Analysis](https://github.com/user-attachments/assets/a805b5cd-27e3-4770-acad-19def2e57bf4)
+![Product Analysis](https://github.com/user-attachments/assets/58c02f90-8fab-4cd9-9714-0afa4d91e8fb)
+![Shippers Analysis](https://github.com/user-attachments/assets/f17ab950-6ea5-458d-b030-859b7a4ba40f)
+
+
+
+
+*The Source Workbooks are in the Repo*
+
+
+## 8. Excel Dashboard
+
+
+## 9. SSRS (SQL Server Reporting Analysis)
+
+
+## 10. Python Dashbaord
+
+In this section we created a dashboard using *python's library streamlit* which is a handy library to create interactive dashboards and deploy them on the web
+
+
+Link for the dashboard:
+
+https://northwind-dashboard-3wofycj7yznyf7dcqh9dvb.streamlit.app/
+
+here are some screenshot from the dashboard *in case you don't want to go to the link :)*
+
+![Screenshot 2025-03-22 143720](https://github.com/user-attachments/assets/c72bb0a3-1bf2-4359-ab83-ca9b55e868f2)
+![Screenshot 2025-03-22 143806](https://github.com/user-attachments/assets/929bba51-1aa0-4f09-af61-73410fb11964)
+![Screenshot 2025-03-22 143801](https://github.com/user-attachments/assets/6da69ce7-ac24-4b45-800c-77967e031d2c)
+![Screenshot 2025-03-22 143751](https://github.com/user-attachments/assets/8085d3ca-6e3a-4f6e-9ac8-695a861f12f9)
+![Screenshot 2025-03-22 143742](https://github.com/user-attachments/assets/17bcac4c-9fd0-4e08-9f95-90cdb6a04b1f)
+![Screenshot 2025-03-22 143733](https://github.com/user-attachments/assets/a742f561-e2ab-4c31-8af1-0a5d4df37b92)
+![Screenshot 2025-03-22 143728](https://github.com/user-attachments/assets/1bc1f4f4-a818-48d0-b90c-5290c212ec56)
+
+
+## 11. Web Application
+
+As the revolution of AI continues to grow, we were tasked to create something with AI and use AI in a helpful manner in our projects, so we decided to use *Cursor.ai* to help us create a management app in which NorthWind Traders can utilize to:
+
+1. Manage Customers ( Add, remove, or update customer details )  
+2. Mange Products ( Add, remove, or update product details )
+3. Manage Orders ( Add, remove, or update product details )
+4. Look at quick and helpful measures to asses how their business is running and whether they are moving in the right directions or if there any bottlenecks
+
+
 
 
 
