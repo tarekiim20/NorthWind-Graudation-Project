@@ -204,15 +204,36 @@ Usign **Power BI**, we created this dashboard to provides insights into key Nort
   Check the screenshots below for specific dimensions. Full details are available in the documentation.
 
 ### Screenshots
-- Overview: ![Overview](7- Power BI Dashboard/Screenshots/Overview)
-- Employee Analysis: ![Employee](7- Power BI Dashboard/Screenshots/Employee)
-- Demographics Analysis: ![Demographics](7- Power BI Dashboard/Screenshots/Demographics)
-- Customers Analysis: ![Customer](7- Power BI Dashboard/Screenshots/Customer)
-- Suppliers Analysis: ![Supplier](7- Power BI Dashboard/Screenshots/Supplier)
-- Product Analysis: ![Product](7- Power BI Dashboard/Screenshots/Product)
-- Shippers Analysis: ![Shipper](7- Power BI Dashboard/Screenshots/Shipper)
-- Time Analysis: ![Time Analysis](7- Power BI Dashboard/Screenshots/Time Analysis)
-- Dark Mode: ![DarkMode](7- Power BI Dashboard/Screenshots/DarkMode)
+- Overview:
+   ![Overview](https://github.com/user-attachments/assets/4823aa44-a29d-4fba-adf3-207dddff43e3)
+  
+- Employee Analysis:
+   ![Employee](https://github.com/user-attachments/assets/c0b1b16d-0f7e-4c4f-9d02-f83a5bfd4ad4)
+
+- Demographics Analysis:
+  ![Demographics](https://github.com/user-attachments/assets/6619c12b-ca5a-48ba-a39b-53a1eed83ddc)
+  
+- Customer Analysis:
+  ![Customer](https://github.com/user-attachments/assets/a1f59dc6-0c0c-4531-872e-a81ee2d7bd81)
+  
+- Suppliers Analysis:
+  ![Supplier](https://github.com/user-attachments/assets/399bea37-7634-485e-ab5b-9d986c6311df)
+  
+- Product Analysis:
+  ![Product](https://github.com/user-attachments/assets/ffcd7298-d877-43e7-817c-58686a20f8c4)
+  
+- Shippers Analysis:
+   ![Shipper](https://github.com/user-attachments/assets/5037706e-4c97-4333-81a2-2ff453e61da5)
+  
+- Dark Mode:
+  
+   ![DarkMode](https://github.com/user-attachments/assets/06403c28-4699-47f7-90b9-bb176e23bca1)
+
+
+
+
+
+
 
 ---
 
