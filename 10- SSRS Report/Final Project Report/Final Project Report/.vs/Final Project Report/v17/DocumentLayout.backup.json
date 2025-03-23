@@ -1,0 +1,83 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\EmpPerformance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|solutionrelative:Final Project Report\\EmpPerformance.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\CustomerReport.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|solutionrelative:Final Project Report\\CustomerReport.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\Suppliers Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|solutionrelative:Final Project Report\\Suppliers Report.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\ProductsReport.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}",
+      "RelativeMoniker": "D:0:0:{990A7954-9003-4EE2-A083-C0AC255F08ED}|Final Project Report\\Final Project Report.rptproj|solutionrelative:Final Project Report\\ProductsReport.rdl||{420F4200-DD61-4785-81F3-52669CBC208E}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Suppliers Report.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\Suppliers Report.rdl",
+              "RelativeDocumentMoniker": "Final Project Report\\Suppliers Report.rdl",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\Suppliers Report.rdl [Design]",
+              "RelativeToolTip": "Final Project Report\\Suppliers Report.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-23T20:49:53.646Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ProductsReport.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\ProductsReport.rdl",
+              "RelativeDocumentMoniker": "Final Project Report\\ProductsReport.rdl",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\ProductsReport.rdl [Design]",
+              "RelativeToolTip": "Final Project Report\\ProductsReport.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-23T20:49:17.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmpPerformance.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\EmpPerformance.rdl",
+              "RelativeDocumentMoniker": "Final Project Report\\EmpPerformance.rdl",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\EmpPerformance.rdl [Design]",
+              "RelativeToolTip": "Final Project Report\\EmpPerformance.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-23T20:45:08.047Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomerReport.rdl [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\CustomerReport.rdl",
+              "RelativeDocumentMoniker": "Final Project Report\\CustomerReport.rdl",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\10- SSRS Report\\Final Project Report\\Final Project Report\\Final Project Report\\CustomerReport.rdl [Design]",
+              "RelativeToolTip": "Final Project Report\\CustomerReport.rdl [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-22T21:38:40.549Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

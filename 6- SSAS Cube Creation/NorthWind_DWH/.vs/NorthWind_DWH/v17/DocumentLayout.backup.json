@@ -1,10 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\Work Space\\sql server service\\ssas\\NorthWind_DWH\\",
+  "WorkspaceRootPath": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|D:\\Work Space\\sql server service\\ssas\\NorthWind_DWH\\NorthWind_DWH\\CustomerFact.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "AbsoluteMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\North Wind DWH View.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|solutionrelative:NorthWind_DWH\\North Wind DWH View.dsv||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\CustomerFact.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
       "RelativeMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|solutionrelative:NorthWind_DWH\\CustomerFact.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\ProductsFact.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|solutionrelative:NorthWind_DWH\\ProductsFact.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\NorthWindDWHCube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design",
+      "RelativeMoniker": "D:0:0:{53747DC3-0754-420A-8DCC-AD75BE1A4832}|NorthWind_DWH\\NorthWind_DWH.dwproj|solutionrelative:NorthWind_DWH\\NorthWindDWHCube.cube||{B4191D15-2D32-45F2-906F-E91BBAAA6059}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -17,38 +29,52 @@
           "SelectedChildIndex": 2,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductsFact.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\ProductsFact.cube",
+              "RelativeDocumentMoniker": "NorthWind_DWH\\ProductsFact.cube",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\ProductsFact.cube [Design]",
+              "RelativeToolTip": "NorthWind_DWH\\ProductsFact.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-23T20:12:43.546Z",
+              "EditorCaption": " [Design]"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{a83394e3-39c2-4678-a3c8-364b69d78fd3}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CustomerFact.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\CustomerFact.cube",
+              "RelativeDocumentMoniker": "NorthWind_DWH\\CustomerFact.cube",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\CustomerFact.cube [Design]",
+              "RelativeToolTip": "NorthWind_DWH\\CustomerFact.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-23T20:12:41.883Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CustomerFact.cube [Design]",
-              "DocumentMoniker": "D:\\Work Space\\sql server service\\ssas\\NorthWind_DWH\\NorthWind_DWH\\CustomerFact.cube",
-              "RelativeDocumentMoniker": "NorthWind_DWH\\CustomerFact.cube",
-              "ToolTip": "D:\\Work Space\\sql server service\\ssas\\NorthWind_DWH\\NorthWind_DWH\\CustomerFact.cube [Design]",
-              "RelativeToolTip": "NorthWind_DWH\\CustomerFact.cube [Design]",
+              "Title": "North Wind DWH View.dsv [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\North Wind DWH View.dsv",
+              "RelativeDocumentMoniker": "NorthWind_DWH\\North Wind DWH View.dsv",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\North Wind DWH View.dsv [Design]",
+              "RelativeToolTip": "NorthWind_DWH\\North Wind DWH View.dsv [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-10T20:22:53.032Z",
+              "WhenOpened": "2025-03-23T20:12:14.096Z",
               "EditorCaption": " [Design]"
-            }
-          ]
-        },
-        {
-          "DockedWidth": 88,
-          "SelectedChildIndex": -1,
-          "Children": [
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NorthWindDWHCube.cube [Design]",
+              "DocumentMoniker": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\NorthWindDWHCube.cube",
+              "RelativeDocumentMoniker": "NorthWind_DWH\\NorthWindDWHCube.cube",
+              "ToolTip": "C:\\Users\\Abdelrahman Shear\\Desktop\\NorthWind-Graudation-Project\\6- SSAS Cube Creation\\NorthWind_DWH\\NorthWind_DWH\\NorthWindDWHCube.cube [Design]",
+              "RelativeToolTip": "NorthWind_DWH\\NorthWindDWHCube.cube [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-03-22T13:16:50.635Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

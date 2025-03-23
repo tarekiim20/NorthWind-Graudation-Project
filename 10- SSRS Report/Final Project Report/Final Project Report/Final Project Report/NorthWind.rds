@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RptDataSource xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="NorthWind">
+  <ConnectionProperties>
+    <Extension>SQL</Extension>
+    <ConnectString>Data Source=KHALID\SQLEXPRESS;Initial Catalog=NorthWind_DWH;TrustServerCertificate=True</ConnectString>
+    <IntegratedSecurity>true</IntegratedSecurity>
+    <Prompt>Specify a user name and password for data source NorthWind</Prompt>
+  </ConnectionProperties>
+  <DataSourceID>b97503c6-1ac7-4766-b0c3-47f7404e8d53</DataSourceID>
+</RptDataSource>

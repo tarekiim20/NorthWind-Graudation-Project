@@ -3,11 +3,11 @@
     <DataSources>
       <DataSource>
         <ID>North Wind DWH</ID>
-        <ConnectionString>Provider=SQLNCLI11.1;Data Source=DESKTOP-NOVVERQ\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=NorthWind_DWH</ConnectionString>
+        <ConnectionString>Provider=SQLOLEDB.1;Data Source=DESKTOP-GS7NQR8\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=NorthWind_DWH</ConnectionString>
         <ImpersonationInfo>
           <ImpersonationMode xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">ImpersonateAccount</ImpersonationMode>
           <Account xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">.\Windows10</Account>
-          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">PasswordRemoved</ImpersonationInfoSecurity>
+          <ImpersonationInfoSecurity xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">Unchanged</ImpersonationInfoSecurity>
         </ImpersonationInfo>
       </DataSource>
     </DataSources>
@@ -86,6 +86,19 @@
       </Cube>
       <Cube>
         <ID>EmployeesFact</ID>
+        <MeasureGroups>
+          <MeasureGroup>
+            <ID>Order Fact Table</ID>
+            <Partitions>
+              <Partition>
+                <ID>Order Fact Table</ID>
+              </Partition>
+            </Partitions>
+          </MeasureGroup>
+        </MeasureGroups>
+      </Cube>
+      <Cube>
+        <ID>NorthWindDWHCube</ID>
         <MeasureGroups>
           <MeasureGroup>
             <ID>Order Fact Table</ID>

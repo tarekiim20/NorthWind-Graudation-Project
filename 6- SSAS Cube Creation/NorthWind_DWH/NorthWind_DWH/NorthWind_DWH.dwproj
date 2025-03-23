@@ -114,7 +114,7 @@
           <ConfigurationSetting>
             <Id>North Wind DWH</Id>
             <Name>North Wind DWH</Name>
-            <Value xsi:type="xsd:string">Provider=SQLNCLI11.1;Data Source=DESKTOP-NOVVERQ\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=NorthWind_DWH</Value>
+            <Value xsi:type="xsd:string">Provider=SQLOLEDB.1;Data Source=DESKTOP-GS7NQR8\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=NorthWind_DWH</Value>
           </ConfigurationSetting>
         </ConnectionMappings>
         <ConnectionSecurityMappings>

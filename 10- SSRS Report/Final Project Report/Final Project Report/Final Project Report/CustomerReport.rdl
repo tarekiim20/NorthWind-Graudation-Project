@@ -1,0 +1,718 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report MustUnderstand="df" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:df="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition/defaultfontfamily" xmlns:am="http://schemas.microsoft.com/sqlserver/reporting/authoringmetadata">
+  <am:AuthoringMetadata>
+    <am:CreatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.12.35527.113</am:Version>
+    </am:CreatedBy>
+    <am:UpdatedBy>
+      <am:Name>SSDTRS</am:Name>
+      <am:Version>17.13.35825.156</am:Version>
+    </am:UpdatedBy>
+    <am:LastModifiedTimestamp>2025-03-23T20:41:51.0915132Z</am:LastModifiedTimestamp>
+  </am:AuthoringMetadata>
+  <df:DefaultFontFamily>Segoe UI</df:DefaultFontFamily>
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="NorthWind">
+      <DataSourceReference>NorthWind</DataSourceReference>
+      <rd:SecurityType>None</rd:SecurityType>
+      <rd:DataSourceID>70c6c739-15d6-40d2-98e7-cebf3b107b4a</rd:DataSourceID>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="DataSet1">
+      <Query>
+        <DataSourceName>NorthWind</DataSourceName>
+        <CommandText>SELECT  
+    c.CustomerID, 
+    c.CompanyName,  
+    COUNT(DISTINCT o.OrderID) AS distinct_total_orders, 
+    ROUND(SUM(o.unitprice * o.quantity * (1 - o.discount)), 3) AS SalesByCustomer,
+    CASE 
+        WHEN COUNT(DISTINCT o.OrderID) &gt;= 15 THEN 'VIP Customer'
+        WHEN COUNT(DISTINCT o.OrderID) BETWEEN 7 AND 14THEN 'Regular Customer'
+        ELSE 'Low-Value Customer'
+    END AS CustomerCategory
+FROM Dim_Customers c
+ JOIN OrderFactTable o
+ON c.CustomerSK = o.CustomerSK
+GROUP BY c.CustomerID, c.CompanyName</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+      <Fields>
+        <Field Name="CustomerID">
+          <DataField>CustomerID</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CompanyName">
+          <DataField>CompanyName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="distinct_total_orders">
+          <DataField>distinct_total_orders</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SalesByCustomer">
+          <DataField>SalesByCustomer</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="CustomerCategory">
+          <DataField>CustomerCategory</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Tablix Name="table1">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>1in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.3125in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.60833in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.52778in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.90278in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.22in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox2">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Customer ID</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>DarkBlue</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox2</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="Textbox3">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Company Name</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>DarkBlue</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>Textbox3</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox4">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>distinct total orders</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>DarkBlue</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily />
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox4</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox5">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Sales By Customer</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>DarkBlue</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <FontFamily />
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox5</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="textbox6">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Customer Category</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <FontSize>11pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>DarkBlue</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>textbox6</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.21in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CustomerID">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CustomerID.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CustomerID</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CompanyName">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CompanyName.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CompanyName</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="distinct_total_orders">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!distinct_total_orders.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>distinct_total_orders</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="SalesByCustomer">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SalesByCustomer.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                    <Format>'$'0;('$'0)</Format>
+                                    <rd:FormatSymbolCulture>en-US</rd:FormatSymbolCulture>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>SalesByCustomer</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="CustomerCategory">
+                          <CanGrow>true</CanGrow>
+                          <KeepTogether>true</KeepTogether>
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!CustomerCategory.Value</Value>
+                                  <Style>
+                                    <FontFamily />
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <rd:DefaultName>CustomerCategory</rd:DefaultName>
+                          <Style>
+                            <Border>
+                              <Color>LightGrey</Color>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                            <BackgroundColor>=SWITCH(
+    Fields!CustomerCategory.Value = "VIP Customer", "LightGreen",
+    Fields!CustomerCategory.Value = "Regular Customer", "Yellow",
+    Fields!CustomerCategory.Value = "Low-Value Customer", "LightGray"
+)</BackgroundColor>
+                            <FontFamily />
+                            <VerticalAlign>Middle</VerticalAlign>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>2pt</PaddingTop>
+                            <PaddingBottom>2pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="table1_Details_Group">
+                    <DataElementName>Detail</DataElementName>
+                  </Group>
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
+                  <DataElementName>Detail_Collection</DataElementName>
+                  <DataElementOutput>Output</DataElementOutput>
+                  <KeepTogether>true</KeepTogether>
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSet1</DataSetName>
+            <Top>0.63417in</Top>
+            <Left>0.65778in</Left>
+            <Height>0.43in</Height>
+            <Width>7.35139in</Width>
+            <Style />
+          </Tablix>
+        </ReportItems>
+        <Height>2.04056in</Height>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Body>
+      <Width>8.00917in</Width>
+      <Page>
+        <PageHeader>
+          <Height>1.5225in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="ReportName">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>NorthWind Report</Value>
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>MidnightBlue</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>ReportName</rd:DefaultName>
+              <Top>0.68056in</Top>
+              <Left>6.43278in</Left>
+              <Height>0.25in</Height>
+              <Width>1.57639in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+            <Image Name="Image2">
+              <Source>Embedded</Source>
+              <Value>images</Value>
+              <Sizing>Fit</Sizing>
+              <Top>0.16431in</Top>
+              <Left>2.75222in</Left>
+              <Height>0.75in</Height>
+              <Width>2.17361in</Width>
+              <ZIndex>1</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+              </Style>
+            </Image>
+            <Textbox Name="textbox1">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>Customer Report</Value>
+                      <Style>
+                        <FontFamily>Segoe UI Light</FontFamily>
+                        <FontSize>24pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                        <Color>MidnightBlue</Color>
+                      </Style>
+                    </TextRun>
+                  </TextRuns>
+                  <Style>
+                    <TextAlign>Center</TextAlign>
+                  </Style>
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>textbox1</rd:DefaultName>
+              <Top>1.0925in</Top>
+              <Left>1.43972in</Left>
+              <Height>0.43in</Height>
+              <Width>5in</Width>
+              <ZIndex>2</ZIndex>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageHeader>
+        <PageFooter>
+          <Height>0.71861in</Height>
+          <PrintOnFirstPage>true</PrintOnFirstPage>
+          <PrintOnLastPage>true</PrintOnLastPage>
+          <ReportItems>
+            <Textbox Name="PageNumber">
+              <CanGrow>true</CanGrow>
+              <KeepTogether>true</KeepTogether>
+              <Paragraphs>
+                <Paragraph>
+                  <TextRuns>
+                    <TextRun>
+                      <Value>=Globals!PageNumber</Value>
+                      <Style />
+                    </TextRun>
+                  </TextRuns>
+                  <Style />
+                </Paragraph>
+              </Paragraphs>
+              <rd:DefaultName>PageNumber</rd:DefaultName>
+              <Top>0.46861in</Top>
+              <Left>2.86333in</Left>
+              <Height>0.25in</Height>
+              <Width>1in</Width>
+              <Style>
+                <Border>
+                  <Style>None</Style>
+                </Border>
+                <PaddingLeft>2pt</PaddingLeft>
+                <PaddingRight>2pt</PaddingRight>
+                <PaddingTop>2pt</PaddingTop>
+                <PaddingBottom>2pt</PaddingBottom>
+              </Style>
+            </Textbox>
+          </ReportItems>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </PageFooter>
+        <LeftMargin>1in</LeftMargin>
+        <RightMargin>1in</RightMargin>
+        <TopMargin>1in</TopMargin>
+        <BottomMargin>1in</BottomMargin>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParametersLayout>
+    <GridLayoutDefinition>
+      <NumberOfColumns>4</NumberOfColumns>
+      <NumberOfRows>2</NumberOfRows>
+    </GridLayoutDefinition>
+  </ReportParametersLayout>
+  <EmbeddedImages>
+    <EmbeddedImage Name="images">
+      <MIMEType>image/png</MIMEType>
+      <ImageData>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</ImageData>
+    </EmbeddedImage>
+  </EmbeddedImages>
+  <Language>en-US</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>faa72d58-20e3-40b8-9534-38e3b41e38bc</rd:ReportID>
+</Report>
