@@ -166,7 +166,35 @@ Screenshots of the Azure ETL process:
 ---
 
 ### 5. Cube Creation
-[Placeholder for content]
+We have made 6 Cubes caching out the important aggregations that we will use later on the reports
+
+1. Data Warehouse Cube
+
+![DWH Cube](https://github.com/user-attachments/assets/ad2d9558-7693-43c4-97d6-2c89cc35b7b7)
+
+   
+2. Customers
+
+![Customers Cube](https://github.com/user-attachments/assets/f55608d6-2b01-494b-a4c4-26a2fcece9d6)
+
+   
+3. ShipInfo
+
+![ShipInfo Cube](https://github.com/user-attachments/assets/e8f0c934-a7d7-4912-b8b1-c278f3c30e0f)
+
+4. Shippers
+
+![Shippers Cube](https://github.com/user-attachments/assets/b7507101-473e-41dd-8373-884e662c98f0)
+
+   
+5. Products
+
+![Products Cube](https://github.com/user-attachments/assets/00458b7a-d90b-4f47-bea6-813ac0da83a2)
+
+
+7. Employees
+   
+![Employees Cube](https://github.com/user-attachments/assets/d8f8c354-94e5-4a5f-b404-80a40e6349e1)
 
 ---
 
