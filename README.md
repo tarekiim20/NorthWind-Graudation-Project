@@ -199,7 +199,20 @@ We have made 6 Cubes caching out the important aggregations that we will use lat
 ---
 
 ### 6. Power BI Dashboarding
-[Placeholder for content]
+Usign **Power BI**, we created this dashboard to provides insights into key Northwind database dimensions, designed to answer key business questions.
+ It includes light and dark mode options for user flexibility and leverages bookmarks for intuitive navigation.
+  Check the screenshots below for specific dimensions. Full details are available in the documentation.
+
+### Screenshots
+- Overview: ![Overview](7- Power BI Dashboard/Screenshots/Overview)
+- Employee Analysis: ![Employee](7- Power BI Dashboard/Screenshots/Employee)
+- Demographics Analysis: ![Demographics](7- Power BI Dashboard/Screenshots/Demographics)
+- Customers Analysis: ![Customer](7- Power BI Dashboard/Screenshots/Customer)
+- Suppliers Analysis: ![Supplier](7- Power BI Dashboard/Screenshots/Supplier)
+- Product Analysis: ![Product](7- Power BI Dashboard/Screenshots/Product)
+- Shippers Analysis: ![Shipper](7- Power BI Dashboard/Screenshots/Shipper)
+- Time Analysis: ![Time Analysis](7- Power BI Dashboard/Screenshots/Time Analysis)
+- Dark Mode: ![DarkMode](7- Power BI Dashboard/Screenshots/DarkMode)
 
 ---
 
