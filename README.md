@@ -201,7 +201,23 @@ Dashboards include:
 ---
 
 ### 9. SSRS (SQL Server Reporting Services)
-[Placeholder for content]
+We have made 4 comprehensive reports about
+
+1. Employee Performance
+   
+![Employee Performance](https://github.com/user-attachments/assets/703b3f7c-a1a1-4e6b-b297-ba24da70fcd7)
+
+2. Products
+   
+![Products](https://github.com/user-attachments/assets/5bf90af6-c4ff-4227-9994-acbbcf164374)
+
+3. Customers
+   
+![Customers](https://github.com/user-attachments/assets/7693f1d5-1625-450b-94df-3e6fe80d8353)
+
+4. Suppliers
+   
+![Suppliers](https://github.com/user-attachments/assets/fa86473c-69c0-4ee2-b506-f49ca317eb4d)
 
 ---
 
