@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35818.85 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Implementation of NorthWind2", "Implementation of NorthWind2.dtproj", "{599AD795-5C09-DE7A-AA47-15E0E38DC14D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{599AD795-5C09-DE7A-AA47-15E0E38DC14D}.Development|Default.ActiveCfg = Development
+		{599AD795-5C09-DE7A-AA47-15E0E38DC14D}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {803445F5-7F33-41B7-801A-C60D78717F15}
+	EndGlobalSection
+EndGlobal

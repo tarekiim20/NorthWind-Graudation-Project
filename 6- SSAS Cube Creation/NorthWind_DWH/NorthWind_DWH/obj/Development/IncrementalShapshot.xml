@@ -1,0 +1,124 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>NorthWind_DWH</Database>
+    <Server>DESKTOP-NOVVERQ\MSSQLSERVER_DEV</Server>
+    <ConnectionString>Data Source=DESKTOP-NOVVERQ\MSSQLSERVER_DEV;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>eY4vJxO669bR97uy5JU5uIE0D1E=3/9/2025 7:21:01 AM3/9/2025 7:21:00 AM</TimeStamp>
+        <ID>
+          <String>North Wind DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>SPIOsNpMffTW49+5T7Sj92D8zSY=3/9/2025 7:23:13 AM3/9/2025 7:23:12 AM</TimeStamp>
+        <ID>
+          <String>North Wind DWH View</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>qdO/ERa/9XYBXvyHYln6eLJ6F0Y=3/9/2025 6:40:02 PM3/9/2025 6:40:01 PM</TimeStamp>
+        <ID>
+          <String>Dim Customers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>bfIk2e8RHl+j2lb1wAfaQRy+4Gw=3/9/2025 6:40:52 PM3/9/2025 6:40:52 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>OvGa5JKJNS/g/o+Yru19VIdz2hk=3/9/2025 6:41:23 PM3/9/2025 6:41:23 PM</TimeStamp>
+        <ID>
+          <String>Dim Products</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>rl/mEL7L/Kf2Oo3IEKxhAtCU+Xo=3/9/2025 6:41:47 PM3/9/2025 6:41:47 PM</TimeStamp>
+        <ID>
+          <String>Dim Ship Info</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>Qo4vOa1Bv8h17EgIiXoIxzhPQVM=3/9/2025 6:42:03 PM3/9/2025 6:42:03 PM</TimeStamp>
+        <ID>
+          <String>Dim Shippers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lLSULcIX4v5dFjGyzP+HbjPAwQQ=3/9/2025 8:56:57 PM3/9/2025 6:54:54 PM</TimeStamp>
+        <ID>
+          <String>Dim Employees</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>BuOhEBE7ueyVZXAHW8r5JRskpgo=3/9/2025 9:32:42 PM3/9/2025 8:58:44 PMLpN1h246c4qGSqjxMWWAbyE25sQ=3/9/2025 8:58:45 PM3/9/2025 8:58:44 PM</TimeStamp>
+        <ID>
+          <String>North Wind DWH View</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>IvwaUgVF/vU/GjEyWdxvoYS2LmE=3/9/2025 9:34:28 PM3/9/2025 9:34:27 PMPQttaVqCDig4gBkznuuVI+SotJg=3/9/2025 9:34:28 PM3/9/2025 9:34:27 PM</TimeStamp>
+        <ID>
+          <String>ProductsFact</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>4Ri/WBqm6iaxN8sTXKT2vjKQWSo=3/9/2025 9:35:41 PM3/9/2025 9:35:41 PMg+5GAI/FZkwwccwd9qOybxJebLQ=3/9/2025 9:35:41 PM3/9/2025 9:35:41 PM</TimeStamp>
+        <ID>
+          <String>ShipInfoFact</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>sQgrTT4u9Gx5619be3GEe28Yu9w=3/9/2025 9:36:32 PM3/9/2025 9:36:32 PMfceEUo1+84OLFsZikODV/QXFza4=3/9/2025 9:36:32 PM3/9/2025 9:36:32 PM</TimeStamp>
+        <ID>
+          <String>ShippersFact</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>DQ49eESYdKQWbFOEb0FgOFobZzE=3/9/2025 9:37:56 PM3/9/2025 9:37:32 PMwFqmXqPn7U/ZA7mL+j2Xkq6uJvQ=3/9/2025 9:37:32 PM3/9/2025 9:37:32 PM</TimeStamp>
+        <ID>
+          <String>EmployeesFact</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>0bR0WanF7YXS2W/zo37OeQ5o5SQ=3/9/2025 7:12:53 AM3/9/2025 7:12:53 AM</TimeStamp>
+      <ID>
+        <String>NorthWind_DWH</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2025-03-09T19:37:59.82Z</LastDeployed>
+</DeploymentSnapshot>
