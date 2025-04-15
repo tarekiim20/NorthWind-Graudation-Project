@@ -1,0 +1,327 @@
+@{
+    ViewData["Title"] = "Executive Dashboard";
+}
+
+<div class="container-fluid px-4">
+    <h1 class="text-center mb-4">Executive Dashboard</h1>
+
+    <!-- Key Metrics -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-2">Total Orders</h6>
+                            <h2 class="mb-0">@(ViewBag.TotalOrders ?? 0)</h2>
+                        </div>
+                        <i class="fas fa-shopping-cart fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-success text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-2">Total Revenue</h6>
+                            <h2 class="mb-0">@((ViewBag.TotalRevenue ?? 0m).ToString("C0"))</h2>
+                        </div>
+                        <i class="fas fa-dollar-sign fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-info text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-2">Total Customers</h6>
+                            <h2 class="mb-0">@(ViewBag.TotalCustomers ?? 0)</h2>
+                        </div>
+                        <i class="fas fa-users fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card bg-warning text-white h-100">
+                <div class="card-body">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="card-title mb-2">Total Products</h6>
+                            <h2 class="mb-0">@(ViewBag.TotalProducts ?? 0)</h2>
+                        </div>
+                        <i class="fas fa-box fa-2x opacity-50"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Monthly Revenue Chart -->
+        <div class="col-xl-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-navy text-white d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Monthly Revenue</h5>
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-outline-light" onclick="updateChart('week')">Week</button>
+                        <button class="btn btn-sm btn-outline-light active" onclick="updateChart('month')">Month</button>
+                        <button class="btn btn-sm btn-outline-light" onclick="updateChart('year')">Year</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="revenueChart" height="300"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Customers -->
+        <div class="col-xl-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-navy text-white">
+                    <h5 class="card-title mb-0">Top Customers</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Company</th>
+                                    <th>Orders</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.TopCustomers != null)
+                                {
+                                    foreach (var customer in ViewBag.TopCustomers)
+                                    {
+                                        if (customer != null)
+                                        {
+                                            <tr>
+                                                <td>@(customer.CompanyName ?? "N/A")</td>
+                                                <td>@(customer.TotalOrders)</td>
+                                                <td>@((customer.TotalSpent ?? 0m).ToString("C0"))</td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Recent Orders -->
+        <div class="col-xl-8 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-navy text-white d-flex justify-content-between align-items-center">
+                    <h5 class="card-title mb-0">Recent Orders</h5>
+                    <a asp-controller="Orders" asp-action="Index" class="btn btn-sm btn-outline-light">View All</a>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.RecentOrders != null)
+                                {
+                                    foreach (var order in ViewBag.RecentOrders)
+                                    {
+                                        if (order != null)
+                                        {
+                                            string status;
+                                            string statusClass;
+
+                                            if (order.ShippedDate != null)
+                                            {
+                                                status = "Shipped";
+                                                statusClass = "success";
+                                            }
+                                            else if (order.OrderDate != null)
+                                            {
+                                                status = "Processing";
+                                                statusClass = "warning";
+                                            }
+                                            else
+                                            {
+                                                status = "Pending";
+                                                statusClass = "secondary";
+                                            }
+
+                                            <tr>
+                                                <td>
+                                                    <a asp-controller="Orders" asp-action="Details" asp-route-id="@order.OrderID" class="text-decoration-none">
+                                                        #@order.OrderID
+                                                    </a>
+                                                </td>
+                                                <td>@(order.Customer?.CompanyName ?? "N/A")</td>
+                                                <td>@(order.OrderDate?.ToString("MMM dd, yyyy") ?? "N/A")</td>
+                                                <td><span class="badge bg-@statusClass">@status</span></td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top Products -->
+        <div class="col-xl-4 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-navy text-white">
+                    <h5 class="card-title mb-0">Top Products</h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Revenue</th>
+                                    <th>Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.TopProducts != null)
+                                {
+                                    foreach (var product in ViewBag.TopProducts)
+                                    {
+                                        if (product != null)
+                                        {
+                                            <tr>
+                                                <td>@(product.ProductName ?? "N/A")</td>
+                                                <td>@((product.TotalRevenue ?? 0m).ToString("C0"))</td>
+                                                <td>
+                                                    @if (product.UnitsInStock == 0)
+                                                    {
+                                                        <span class="badge bg-danger">Out of Stock</span>
+                                                    }
+                                                    else
+                                                    {
+                                                        @product.UnitsInStock
+                                                    }
+                                                </td>
+                                            </tr>
+                                        }
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orders Map -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card h-100">
+                <div class="card-header bg-navy text-white">
+                    <h5 class="card-title mb-0">Orders by Region</h5>
+                </div>
+                <div class="card-body">
+                    <div id="ordersMap" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.css" rel="stylesheet" />
+    <script>
+        // Monthly Revenue Chart
+        var ctx = document.getElementById('revenueChart').getContext('2d');
+        var monthlyData = @Html.Raw(Json.Serialize(ViewBag.MonthlyRevenue ?? new object[] {}));
+        var revenueChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: monthlyData.map(d => new Date(d.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })),
+                datasets: [{
+                    label: 'Monthly Revenue',
+                    data: monthlyData.map(d => d.revenue),
+                    borderColor: '#1a237e',
+                    backgroundColor: 'rgba(26, 35, 126, 0.1)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        function updateChart(period) {
+            // Update chart based on selected period
+            // This would require backend changes to support different time periods
+            console.log('Updating chart for period:', period);
+        }
+
+        // Initialize Orders Map
+        var map = L.map('ordersMap').setView([20, 0], 2);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add markers for orders
+        var ordersData = @Html.Raw(Json.Serialize(ViewBag.OrdersByRegion ?? new object[] {}));
+        ordersData.forEach(function(order) {
+            if (order.latitude && order.longitude) {
+                var marker = L.marker([order.latitude, order.longitude])
+                    .bindPopup(`
+                        <strong>${order.city}</strong><br>
+                        Country: ${order.country}<br>
+                        Orders: ${order.orderCount}<br>
+                        Revenue: $${order.totalRevenue.toLocaleString()}
+                    `)
+                    .addTo(map);
+
+                // Add circle to show order volume
+                var radius = Math.min(Math.max(order.orderCount * 1000, 5000), 50000);
+                L.circle([order.latitude, order.longitude], {
+                    radius: radius,
+                    color: '#1a237e',
+                    fillColor: '#1a237e',
+                    fillOpacity: 0.2
+                }).addTo(map);
+            }
+        });
+    </script>
+} 

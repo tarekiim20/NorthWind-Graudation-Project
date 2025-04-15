@@ -1,0 +1,80 @@
+@model IEnumerable<NorthWindTraders.Models.Product>
+
+@{
+    ViewData["Title"] = "Products";
+    var currentSort = ViewData["CurrentSort"] as string ?? "name";
+    var showOutOfStock = (bool)(ViewData["ShowOutOfStock"] ?? false);
+}
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>Products</h1>
+    <div>
+        <a asp-action="Create" class="btn btn-primary me-2">Create New Product</a>
+        <a asp-action="Index" 
+           asp-route-showOutOfStock="@(!showOutOfStock)"
+           asp-route-sortOrder="@currentSort"
+           class="btn @(showOutOfStock ? "btn-secondary" : "btn-warning")">
+            @(showOutOfStock ? "Show All Products" : "Show Out of Stock")
+        </a>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ProductID)</th>
+            <th>
+                <a asp-action="Index" 
+                   asp-route-sortOrder="@ViewData["NameSortParam"]"
+                   asp-route-showOutOfStock="@showOutOfStock">
+                    @Html.DisplayNameFor(model => model.ProductName)
+                    @if (currentSort == "name")
+                    {
+                        <i class="bi bi-sort-alpha-down ms-1"></i>
+                    }
+                    else if (currentSort == "name_desc")
+                    {
+                        <i class="bi bi-sort-alpha-up-alt ms-1"></i>
+                    }
+                </a>
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Category.CategoryName)</th>
+            <th>@Html.DisplayNameFor(model => model.UnitPrice)</th>
+            <th>
+                <a asp-action="Index" 
+                   asp-route-sortOrder="@ViewData["StockSortParam"]"
+                   asp-route-showOutOfStock="@showOutOfStock">
+                    @Html.DisplayNameFor(model => model.UnitsInStock)
+                    @if (currentSort == "stock")
+                    {
+                        <i class="bi bi-sort-numeric-down ms-1"></i>
+                    }
+                    else if (currentSort == "stock_desc")
+                    {
+                        <i class="bi bi-sort-numeric-up-alt ms-1"></i>
+                    }
+                </a>
+            </th>
+            <th>@Html.DisplayNameFor(model => model.Discontinued)</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="@(item.UnitsInStock == 0 ? "table-warning" : "")">
+                <td>@Html.DisplayFor(modelItem => item.ProductID)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                <td>@Html.DisplayFor(modelItem => item.Category.CategoryName)</td>
+                <td>@item.UnitPrice?.ToString("C")</td>
+                <td>@Html.DisplayFor(modelItem => item.UnitsInStock)</td>
+                <td>@Html.DisplayFor(modelItem => item.Discontinued)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProductID" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.ProductID" class="btn btn-info btn-sm">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProductID" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table> 

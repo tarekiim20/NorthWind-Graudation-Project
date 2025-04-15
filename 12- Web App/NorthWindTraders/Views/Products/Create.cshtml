@@ -1,0 +1,79 @@
+@model NorthWindTraders.Models.Product
+
+@{
+    ViewData["Title"] = "Create Product";
+}
+
+<h1>Create Product</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="ProductName" class="control-label"></label>
+                <input asp-for="ProductName" class="form-control" />
+                <span asp-validation-for="ProductName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SupplierID" class="control-label"></label>
+                <input asp-for="SupplierID" class="form-control" />
+                <span asp-validation-for="SupplierID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CategoryID" class="control-label"></label>
+                <input asp-for="CategoryID" class="form-control" />
+                <span asp-validation-for="CategoryID" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="QuantityPerUnit" class="control-label"></label>
+                <input asp-for="QuantityPerUnit" class="form-control" />
+                <span asp-validation-for="QuantityPerUnit" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UnitPrice" class="control-label"></label>
+                <input asp-for="UnitPrice" class="form-control" type="number" step="0.01" />
+                <span asp-validation-for="UnitPrice" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UnitsInStock" class="control-label"></label>
+                <input asp-for="UnitsInStock" class="form-control" type="number" />
+                <span asp-validation-for="UnitsInStock" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UnitsOnOrder" class="control-label"></label>
+                <input asp-for="UnitsOnOrder" class="form-control" type="number" />
+                <span asp-validation-for="UnitsOnOrder" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="ReorderLevel" class="control-label"></label>
+                <input asp-for="ReorderLevel" class="form-control" type="number" />
+                <span asp-validation-for="ReorderLevel" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <div class="form-check">
+                    <input asp-for="Discontinued" class="form-check-input" />
+                    <label asp-for="Discontinued" class="form-check-label"></label>
+                </div>
+            </div>
+
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

@@ -1,0 +1,59 @@
+@model NorthWindTraders.Models.Customer
+@{
+    ViewData["Title"] = "Delete Customer";
+}
+
+<div class="container-fluid">
+    <h1 class="mt-4">Delete Customer</h1>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-trash me-1"></i>
+            Delete Customer
+        </div>
+        <div class="card-body">
+            <h3>Are you sure you want to delete this customer?</h3>
+            <div>
+                <dl class="row">
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CustomerID)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.CustomerID)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.CompanyName)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.CompanyName)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ContactName)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.ContactName)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.ContactTitle)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.ContactTitle)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Address)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Address)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.City)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.City)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Region)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Region)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.PostalCode)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.PostalCode)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Country)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Country)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Phone)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Phone)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(model => model.Fax)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(model => model.Fax)</dd>
+                </dl>
+            </div>
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="CustomerID" />
+                <input type="submit" value="Delete" class="btn btn-danger" />
+                <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+            </form>
+        </div>
+    </div>
+</div> 

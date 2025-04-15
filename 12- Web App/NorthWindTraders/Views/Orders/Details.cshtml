@@ -1,0 +1,129 @@
+@model NorthWindTraders.Models.Order
+
+@{
+    ViewData["Title"] = "Order Details";
+}
+
+<h1>Order Details</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Order Information</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Order ID</dt>
+                    <dd class="col-sm-8">@Model.OrderID</dd>
+                    
+                    <dt class="col-sm-4">Customer</dt>
+                    <dd class="col-sm-8">
+                        <a asp-controller="Customers" asp-action="Details" asp-route-id="@Model.CustomerID" class="text-decoration-none">
+                            @Model.Customer?.CompanyName
+                        </a>
+                    </dd>
+                    
+                    <dt class="col-sm-4">Order Date</dt>
+                    <dd class="col-sm-8">@Model.OrderDate?.ToString("MMM dd, yyyy")</dd>
+                    
+                    <dt class="col-sm-4">Required Date</dt>
+                    <dd class="col-sm-8">@Model.RequiredDate?.ToString("MMM dd, yyyy")</dd>
+                    
+                    <dt class="col-sm-4">Shipped Date</dt>
+                    <dd class="col-sm-8">@Model.ShippedDate?.ToString("MMM dd, yyyy")</dd>
+                    
+                    <dt class="col-sm-4">Status</dt>
+                    <dd class="col-sm-8">
+                        @{
+                            var status = Model.ShippedDate.HasValue ? "Shipped" : 
+                                        Model.OrderDate.HasValue ? "Processing" : "Pending";
+                            var statusClass = status == "Shipped" ? "success" : 
+                                            status == "Processing" ? "warning" : "secondary";
+                        }
+                        <span class="badge bg-@statusClass">@status</span>
+                    </dd>
+                    
+                    <dt class="col-sm-4">Ship Via</dt>
+                    <dd class="col-sm-8">@Model.ShipVia</dd>
+                    
+                    <dt class="col-sm-4">Freight</dt>
+                    <dd class="col-sm-8">@Model.Freight?.ToString("C")</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="card-title mb-0">Shipping Information</h5>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">Ship Name</dt>
+                    <dd class="col-sm-8">@Model.ShipName</dd>
+                    
+                    <dt class="col-sm-4">Ship Address</dt>
+                    <dd class="col-sm-8">@Model.ShipAddress</dd>
+                    
+                    <dt class="col-sm-4">Ship City</dt>
+                    <dd class="col-sm-8">@Model.ShipCity</dd>
+                    
+                    <dt class="col-sm-4">Ship Region</dt>
+                    <dd class="col-sm-8">@Model.ShipRegion</dd>
+                    
+                    <dt class="col-sm-4">Ship Postal Code</dt>
+                    <dd class="col-sm-8">@Model.ShipPostalCode</dd>
+                    
+                    <dt class="col-sm-4">Ship Country</dt>
+                    <dd class="col-sm-8">@Model.ShipCountry</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title mb-0">Order Items</h5>
+    </div>
+    <div class="card-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Discount</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.OrderDetails)
+                {
+                    var itemTotal = item.UnitPrice * Convert.ToDecimal(item.Quantity) * (1m - Convert.ToDecimal(item.Discount));
+                    <tr>
+                        <td>
+                            <a asp-controller="Products" asp-action="Details" asp-route-id="@item.ProductID" class="text-decoration-none">
+                                @item.Product?.ProductName
+                            </a>
+                        </td>
+                        <td>@item.UnitPrice.ToString("C")</td>
+                        <td>@item.Quantity</td>
+                        <td>@(item.Discount * 100)%</td>
+                        <td>@itemTotal.ToString("C")</td>
+                    </tr>
+                }
+                <tr class="table-secondary">
+                    <td colspan="4" class="text-end"><strong>Order Total:</strong></td>
+                    <td><strong>@Model.OrderDetails.Sum(od => od.UnitPrice * Convert.ToDecimal(od.Quantity) * (1m - Convert.ToDecimal(od.Discount))).ToString("C")</strong></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-controller="Customers" asp-action="Details" asp-route-id="@Model.CustomerID" class="btn btn-secondary">Back to Customer</a>
+</div> 

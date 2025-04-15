@@ -1,0 +1,197 @@
+:root {
+    --navy-blue: #1a237e;
+    --navy-light: #534bae;
+    --navy-dark: #000051;
+    --accent-color: #ffd700;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem var(--navy-light);
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #f8f9fa;
+}
+
+/* Navbar and Footer */
+.bg-navy {
+    background-color: var(--navy-blue) !important;
+}
+
+.navbar-brand {
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: white !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.nav-link:hover {
+    color: var(--accent-color) !important;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+    color: white !important;
+}
+
+.footer a {
+    color: var(--accent-color) !important;
+}
+
+.footer a:hover {
+    color: white !important;
+    text-decoration: underline;
+}
+
+/* Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background-color: var(--navy-blue);
+    color: white;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+/* Tables */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.table thead th {
+    background-color: var(--navy-blue);
+    color: white !important;
+    border: none;
+}
+
+.table thead th a {
+    color: white !important;
+}
+
+.table thead th a:hover {
+    color: var(--accent-color) !important;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(26, 35, 126, 0.05);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--navy-blue);
+    border-color: var(--navy-blue);
+}
+
+.btn-primary:hover {
+    background-color: var(--navy-light);
+    border-color: var(--navy-light);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+/* Stats Cards */
+.stats-card {
+    background: linear-gradient(135deg, var(--navy-blue), var(--navy-light));
+    color: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.stats-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.stats-card .card-text {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* Badges */
+.badge {
+    padding: 0.5em 0.75em;
+    font-weight: 500;
+}
+
+/* Links */
+a {
+    color: var(--navy-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--navy-light);
+}
+
+/* Form Controls */
+.form-control:focus {
+    border-color: var(--navy-light);
+    box-shadow: 0 0 0 0.2rem rgba(26, 35, 126, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--navy-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--navy-light);
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}

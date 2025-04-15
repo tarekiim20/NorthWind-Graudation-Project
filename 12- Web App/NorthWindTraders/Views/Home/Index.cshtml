@@ -1,0 +1,230 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="hero-section text-center py-5 bg-navy text-white mb-5">
+    <div class="container">
+        <h1 class="display-4 mb-4">Welcome to NorthWind Traders</h1>
+        <p class="lead mb-4">Your comprehensive solution for managing customers, orders, and products</p>
+        <p class="text-light mb-4"><small>Developed by ITI Students - Track Power BI - Q2 - Mansoura</small></p>
+        <div class="row g-4 justify-content-center mt-4">
+            <div class="col-md-4">
+                <a asp-controller="Customers" asp-action="Index" class="text-decoration-none">
+                    <div class="card h-100 border-0 bg-white text-dark">
+                        <div class="card-body text-center">
+                            <i class="bi bi-people display-4 text-navy mb-3"></i>
+                            <h5 class="card-title">Manage Customers</h5>
+                            <p class="card-text">View and manage customer information, orders, and history</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="Orders" asp-action="Index" class="text-decoration-none">
+                    <div class="card h-100 border-0 bg-white text-dark">
+                        <div class="card-body text-center">
+                            <i class="bi bi-cart display-4 text-navy mb-3"></i>
+                            <h5 class="card-title">Track Orders</h5>
+                            <p class="card-text">Monitor order status, details, and shipping information</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a asp-controller="Products" asp-action="Index" class="text-decoration-none">
+                    <div class="card h-100 border-0 bg-white text-dark">
+                        <div class="card-body text-center">
+                            <i class="bi bi-box display-4 text-navy mb-3"></i>
+                            <h5 class="card-title">Manage Products</h5>
+                            <p class="card-text">Access product catalog, inventory, and pricing information</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row g-4 mb-5">
+        <div class="col-md-3">
+            <div class="stats-card">
+                <div class="card-title">
+                    <i class="bi bi-people me-2"></i>Total Customers
+                </div>
+                <div class="card-text">@ViewBag.TotalCustomers</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card">
+                <div class="card-title">
+                    <i class="bi bi-cart me-2"></i>Total Orders
+                </div>
+                <div class="card-text">@ViewBag.TotalOrders</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card">
+                <div class="card-title">
+                    <i class="bi bi-box me-2"></i>Total Products
+                </div>
+                <div class="card-text">@ViewBag.TotalProducts</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="stats-card">
+                <div class="card-title">
+                    <i class="bi bi-currency-dollar me-2"></i>Total Revenue
+                </div>
+                <div class="card-text">@ViewBag.TotalRevenue.ToString("C")</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-clock-history me-2"></i>Recent Orders
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Date</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.RecentOrders != null)
+                                {
+                                    foreach (var order in ViewBag.RecentOrders)
+                                    {
+                                        var status = order?.ShippedDate != null ? "Shipped" : 
+                                                    order?.OrderDate != null ? "Processing" : "Pending";
+                                        var statusClass = status == "Shipped" ? "success" : 
+                                                        status == "Processing" ? "warning" : "secondary";
+                                        <tr>
+                                            <td>
+                                                <a asp-controller="Orders" asp-action="Details" asp-route-id="@order.OrderID">
+                                                    @order.OrderID
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a asp-controller="Customers" asp-action="Details" asp-route-id="@order.CustomerID">
+                                                    @(order.Customer?.CompanyName ?? "N/A")
+                                                </a>
+                                            </td>
+                                            <td>@(order.OrderDate?.ToString("MMM dd, yyyy") ?? "N/A")</td>
+                                            <td><span class="badge bg-@statusClass">@status</span></td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">
+                        <i class="bi bi-star me-2"></i>Top Products
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (ViewBag.TopProducts != null)
+                                {
+                                    foreach (var product in ViewBag.TopProducts)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <a asp-controller="Products" asp-action="Details" asp-route-id="@product.ProductID">
+                                                    @product.ProductName
+                                                </a>
+                                            </td>
+                                            <td>@(product.Category?.CategoryName ?? "N/A")</td>
+                                            <td>@(product.UnitPrice?.ToString("C") ?? "N/A")</td>
+                                            <td>@product.UnitsInStock</td>
+                                        </tr>
+                                    }
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mb-5">
+    <div class="team-section py-5">
+        <h2 class="text-center mb-5">Meet Our Team</h2>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <img src="~/images/team/Abdelrahman Tarek Photo.jpg" alt="Abdelrahman Tarek" class="img-fluid rounded-circle mb-3" style="max-width: 150px; border: 3px solid #1a237e;">
+                        <h5 class="card-title">Abdelrahman Tarek</h5>
+                        <p class="card-text text-muted">Power BI Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <img src="~/images/team/Yasmeen Ragheb Photo.jpg" alt="Yasmeen Ragheb" class="img-fluid rounded-circle mb-3" style="max-width: 150px; border: 3px solid #1a237e;">
+                        <h5 class="card-title">Yasmeen Ragheb</h5>
+                        <p class="card-text text-muted">Power BI Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <img src="~/images/team/Nada Aglan Photo.jpg" alt="Nada Aglan" class="img-fluid rounded-circle mb-3" style="max-width: 150px; border: 3px solid #1a237e;">
+                        <h5 class="card-title">Nada Aglan</h5>
+                        <p class="card-text text-muted">Power BI Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <img src="~/images/team/Abdelrahman Abdelhady Photo.jpg" alt="Abdelrahman Abdelhady" class="img-fluid rounded-circle mb-3" style="max-width: 150px; border: 3px solid #1a237e;">
+                        <h5 class="card-title">Abdelrahman Abdelhady</h5>
+                        <p class="card-text text-muted">Power BI Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 text-center">
+                    <div class="card-body">
+                        <img src="~/images/team/Khalid Sabry Photo.jpg" alt="Khalid Sabry" class="img-fluid rounded-circle mb-3" style="max-width: 150px; border: 3px solid #1a237e;">
+                        <h5 class="card-title">Khalid Sabry</h5>
+                        <p class="card-text text-muted">Power BI Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

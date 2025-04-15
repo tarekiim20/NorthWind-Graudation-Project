@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: northwind-traders
+    env: docker
+    buildCommand: docker build -t northwind-traders .
+    startCommand: docker run -p $PORT:80 northwind-traders
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ConnectionStrings__DefaultConnection
+        fromDatabase:
+          name: northwind_db
+          property: connectionString
+    databases:
+      - name: northwind_db
+        databaseName: northwind
+        user: northwind 
